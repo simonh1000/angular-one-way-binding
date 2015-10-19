@@ -1,9 +1,12 @@
 <div>
-	<h2>Two Counters</h2>
-	<counter [count]="model.top" (mchange)="mchange('top')($event)"></counter>
-	<counter [count]="model.bot" (mchange)="mchange('bot')($event)"></counter>
-</div>
-
-<div>
-	Current values: {{model.top}}, {{model.bot}}
+	<h2>Many Counters</h2>
+	<p>
+		<button (click)="addCounter()">Add counter</button>
+	</p>
+	
+	<counter
+		*ng-for="#val of model; #i=index" 
+		[count]="val" 
+		(mchange)="mchange(i)($event)">
+	</counter>
 </div>

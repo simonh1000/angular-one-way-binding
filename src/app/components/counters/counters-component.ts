@@ -1,33 +1,24 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View, NgFor } from 'angular2/angular2';
 import { CounterComponent } from '../counter/counter-component';
 
 @Component({ selector: 'counters' })
 @View({
   templateUrl: 'app/components/counters/counters.html',
-  directives: [CounterComponent]
+  directives: [CounterComponent, NgFor]
 })
 export class CountersComponent {
-  model: Object;
+  model: Array<Number>;
   
   constructor() {
-    this.model = {
-      "top" : 10,
-      "bot" : 20
-    }
+    this.model = [];
   }
   
-  mchangetop(delta) {
-    this.mchange('top')(delta);  
+  addCounter() {
+    this.model.push(0);
   }
   
   mchange(countName){
-    return (delta => {
-      console.log(countName, delta);      
-      this.model[countName] += delta);
-    });
+    return (delta => this.model[countName] += delta)
   }
   
-  eventHandler(evt) {
-    console.log(evt);    
-  }
 };
