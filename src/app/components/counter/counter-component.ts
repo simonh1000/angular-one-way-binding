@@ -1,18 +1,27 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View, Input, Output, EventEmitter } from 'angular2/angular2';
 
-@Component({ selector: 'counter' })
+@Component({ 
+    selector: 'counter'
+  , properties: ['count:count', 'mchange:mchange']
+})
 @View({
   templateUrl: 'app/components/counter/counter.html',
 })
 export class CounterComponent {
-  count: Number; 
+  @Input() count : Number;
+  @Output() mchange = new EventEmitter();
   
+  // count: Number; 
+  // mchange: Function;
+  
+  // constructor() {
   constructor() {
-    this.count = 0;
+    // this.count = count;
   }
   
   change(delta) {
-    this.count += delta;
+    this.mchange.next(delta);
+    // this.count += delta;
   }
  
 };
