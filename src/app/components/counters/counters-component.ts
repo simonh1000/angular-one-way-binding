@@ -8,17 +8,20 @@ import { CounterComponent } from '../counter/counter-component';
 })
 export class CountersComponent {
   model: Array<Number>;
-  
+
   constructor() {
     this.model = [];
   }
-  
+
   addCounter() {
     this.model.push(0);
   }
-  
-  mchange(countName){
-    return (delta => this.model[countName] += delta)
+
+  pchange(idx) {
+    return (delta => this.model[idx] += delta)
   }
-  
+
+  remove(idx) {
+    return (e => this.model.splice(idx, 1));
+  }
 };

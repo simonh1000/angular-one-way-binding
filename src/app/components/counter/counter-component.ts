@@ -10,6 +10,7 @@ import { Component, View, Input, Output, EventEmitter } from 'angular2/angular2'
 export class CounterComponent {
   @Input() count : Number;
   @Output() mchange = new EventEmitter();
+  @Output() parentRemove = new EventEmitter();
   
   constructor() {
   }
@@ -18,4 +19,7 @@ export class CounterComponent {
     this.mchange.next(delta);
   }
  
+  remove() {
+    this.parentRemove.next('X');
+  }
 };

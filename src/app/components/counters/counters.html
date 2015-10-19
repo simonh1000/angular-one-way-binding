@@ -7,6 +7,7 @@
 	<counter
 		*ng-for="#val of model; #i=index" 
 		[count]="val" 
-		(mchange)="mchange(i)($event)">
+		(mchange)="pchange(i)($event)"
+		(parent-remove)="remove(i)($event)">
 	</counter>
 </div>
