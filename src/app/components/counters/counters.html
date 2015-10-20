@@ -1,9 +1,5 @@
 <div>
 	<h2>Two Counters</h2>
-	<counter [count]="model.top" (mchange)="mchange('top')($event)"></counter>
-	<counter [count]="model.bot" (mchange)="mchange('bot')($event)"></counter>
-</div>
-
-<div>
-	Current values: {{model.top}}, {{model.bot}}
+	<counter [count]="model.top" (updater)="pupdate('top')($event)"></counter>
+	<counter [count]="model.bot" (updater)="pupdate('bot')($event)"></counter>
 </div>
