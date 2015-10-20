@@ -1,25 +1,25 @@
 import { Component, View, Input, Output, EventEmitter } from 'angular2/angular2';
 
-@Component({ 
-    selector: 'counter'
-  , properties: ['count:count', 'mchange:mchange']
+@Component({
+  selector: 'counter'
 })
 @View({
   templateUrl: 'app/components/counter/counter.html',
 })
 export class CounterComponent {
-  @Input() count : Number;
-  @Output() mchange = new EventEmitter();
-  @Output() parentRemove = new EventEmitter();
-  
+  @Input() count : number;
+  @Output() updater = new EventEmitter();
+  @Output() remover = new EventEmitter();
+
   constructor() {
   }
-  
-  change(delta) {
-    this.mchange.next(delta);
+
+  action(val : string) {
+    let delta = (val === 'inc') ? 1 : -1;
+    this.updater.next(this.count + delta);
   }
  
   remove() {
-    this.parentRemove.next('X');
+    this.remover.next('X');
   }
 };

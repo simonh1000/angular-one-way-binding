@@ -1,7 +1,9 @@
 import { Component, View, NgFor } from 'angular2/angular2';
 import { CounterComponent } from '../counter/counter-component';
 
-@Component({ selector: 'counters' })
+@Component({ 
+  selector: 'counters' 
+})
 @View({
   templateUrl: 'app/components/counters/counters.html',
   directives: [CounterComponent, NgFor]
@@ -17,11 +19,12 @@ export class CountersComponent {
     this.model.push(0);
   }
 
-  pchange(idx) {
-    return (delta => this.model[idx] += delta)
+  pupdate(countName) {
+    return (newVal => this.model[countName] = newVal);
   }
 
-  remove(idx) {
+  premove(idx) {
     return (e => this.model.splice(idx, 1));
   }
+  
 };
