@@ -1,18 +1,20 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View, Input, Output, EventEmitter } from 'angular2/angular2';
 
-@Component({ selector: 'counter' })
+@Component({
+  selector: 'counter'
+})
 @View({
   templateUrl: 'app/components/counter/counter.html',
 })
 export class CounterComponent {
-  count: Number; 
-  
+  @Input() count;
+  @Output() updater = new EventEmitter();
+
   constructor() {
-    this.count = 0;
   }
-  
-  change(delta) {
-    this.count += delta;
+
+  action(val) {
+    let delta: Number = (val === 'inc') ? 1 : -1;
+    this.updater.next(this.count + delta);
   }
- 
 };
