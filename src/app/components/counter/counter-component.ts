@@ -4,7 +4,7 @@ import { Component, View, Input, Output, EventEmitter } from 'angular2/angular2'
   selector: 'counter'
 })
 @View({
-  templateUrl: 'app/components/counter/counter.html',
+  templateUrl: 'app/components/counter/counter.html'
 })
 export class CounterComponent {
   @Input() count;
