@@ -19,8 +19,8 @@ export class CountersComponent {
     this.model.push(0);
   }
   
-  pupdate(countName){
-    return (newVal => this.model[countName] = newVal)
+  pupdate(modelName){
+    return (newVal => this.model[modelName] = newVal)
   }
   
 };
