@@ -19,7 +19,7 @@ export class CountersComponent {
   }
   
   pupdate(modelName) {
-    return ( newVal : number => this.model[modelName] = newVal);
+    return ( newVal => this.model[modelName] = newVal);
   }
   
 };
