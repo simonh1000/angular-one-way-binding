@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "angular2": "^2.0.0-alpha.44",
+    "immutable": "^3.7.5",
+    "redux": "^3.0.3",
     "systemjs": "0.19.4"
   }
 }
